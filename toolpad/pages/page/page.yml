@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mui/mui-toolpad/v0.5.1/docs/schemas/v1/definitions.json#properties/Page
+
+apiVersion: v1
+kind: page
+spec:
+  title: Default page
+  alias:
+    - QR10aMh
+  content:
+    - component: Form
+      name: form
+      children:
+        - component: TextField
+          name: textField
+          props:
+            label: first name
+            isRequired: true
+    - component: Text
+      name: text
+    - component: Autocomplete
+      name: autocomplete
