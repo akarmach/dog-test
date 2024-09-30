@@ -35,7 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .generated/app # Adjust to match the correct relative build path
+          path: toolpad/app # Adjust to match the correct relative build path
 
   deploy:
     environment:
