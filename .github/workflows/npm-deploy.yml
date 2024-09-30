@@ -24,16 +24,18 @@ jobs:
           node-version: '20'
 
       # Install npm dependencies
-      - name: Install dependencies
+      - name: Install npm dependencies
         run: npm install
 
       # Build the project
       - name: Build project
         run: npm run build
 
-      # Upload the build output as an artifact
-      - name: Upload build artifact
+      # Upload the build output as an artifact (use the relative path based on the build output)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: .generated/app # Adjust to match the correct relative build path
 
   deploy:
     environment:
