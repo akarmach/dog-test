@@ -28,13 +28,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+
+      # Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # You can adjust the Node.js version as needed
+
+      # Install npm dependencies
+      - name: Install npm dependencies
+        run: npm install
+
+      # Run the build script you use locally (npm run dev might be better suited for development)
+      - name: Build with npm
+        run: npm run build # You may need to create an npm build script if it doesn't exist yet
+
+      # Jekyll-specific build command to generate the static site
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
+
+      # Upload the artifact for deployment
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
